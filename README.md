@@ -21,4 +21,8 @@ To build the site with Hugo, do something like this from the root of the reposit
 HUGO_MEMORYLIMIT=8 hugo --logLevel info
 ```
 
-Note that `HUGO_MEMORYLIMIT` is in GB. If not set, it defaults to the quarter of the total system memory.
+Note that `HUGO_MEMORYLIMIT` is in GB. If not set, it defaults to the quarter of the total system memory. Also note that Hugo has some hidden flags that may be useful in this context:
+
+* `--profile-cpu=<filename>`
+* `--profile-mem=<filename>`
+* `--profile-mutex=<filename>`
