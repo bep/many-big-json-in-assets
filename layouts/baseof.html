@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #f5f5f5;
+        margin-left: 5rem;
+        margin-top: 5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>{{ .Title }}</h1>
+    {{ block "main" . }}{{ end }}
+  </body>
+</html>

@@ -1,0 +1,24 @@
+{{ define "main" }}
+
+  {{ $jsonPath := printf "myjson/%s.json" .File.BaseFileName }}
+  {{ $jsonr := resources.Get $jsonPath }}
+  {{ with $jsonr }}
+    {{ $data := $jsonr | transform.Unmarshal }}
+    {{ template "printmap" $data }}
+  {{ end }}
+{{ end }}
+
+{{ define "printmap" }}
+  {{ if reflect.IsMap . }}
+    {{ range $k, $v := . }}
+      K:
+      {{ $k }}
+      {{ template "printmap" $v }}
+    {{ end }}
+  {{ else if reflect.IsSlice . }}
+    {{ printf "len: %d" (. |len) }}
+  {{ else }}
+    Type:
+    {{ printf "%T" . }}
+  {{ end }}
+{{ end }}
