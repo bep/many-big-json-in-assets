@@ -11,7 +11,7 @@ go install github.com/gohugoio/hugo@latest
 To prepare the test data:
 
 ```bash
-cd scripts
+cd script
 ./gen.sh
 ```
 
